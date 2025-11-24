@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mayank Bansal | Portfolio</title>
+  <style>
+    /* === RESET & BASE === */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', Arial, sans-serif;
+      background: radial-gradient(circle at top left, #0a0a1a, #05010c);
+      color: #e0e0e0;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 30px auto 40px;
+      padding: 0 20px;
+    }
+
+    /* === HEADER === */
+    header {
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    header h1 {
+      font-size: 2.4rem;
+      letter-spacing: 1px;
+      background: linear-gradient(90deg, #00e0ff, #c77dff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 700;
+      text-shadow: 0 0 12px rgba(0, 224, 255, 0.3);
+    }
+
+    header hr {
+      margin: 12px auto;
+      width: 60%;
+      border: 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    header img {
+      margin-top: 20px;
+      border-radius: 50%;
+      width: 160px;
+      height: 160px;
+      object-fit: cover;
+      border: 3px solid #00e0ff;
+      box-shadow: 0 0 25px rgba(0, 224, 255, 0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    header img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 35px rgba(199, 125, 255, 0.6);
+    }
+
+    /* === NAVIGATION === */
+    nav {
+      margin-top: 25px;
+    }
+
+    nav h2 {
+      font-size: 1.2rem;
+      color: #00e0ff;
+      margin-bottom: 12px;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    nav a {
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 30px;
+      border: 1px solid rgba(0, 224, 255, 0.6);
+      color: #f5f5f5;
+      background: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(8px);
+      transition: all 0.3s ease;
+      box-shadow: 0 0 10px rgba(0, 224, 255, 0.1);
+    }
+
+    nav a:hover {
+      background: linear-gradient(90deg, #00e0ff, #c77dff);
+      color: #000;
+      box-shadow: 0 0 20px rgba(199, 125, 255, 0.6);
+      transform: translateY(-2px);
+    }
+
+    /* === SECTIONS === */
+    section {
+      margin-top: 35px;
+    }
+
+    .card {
+      background: rgba(15, 15, 35, 0.9);
+      padding: 22px 25px;
+      border-radius: 15px;
+      border: 1px solid rgba(0, 224, 255, 0.15);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 0 25px rgba(199, 125, 255, 0.35);
+    }
+
+    section h2 {
+      margin-bottom: 10px;
+      font-size: 1.4rem;
+      background: linear-gradient(90deg, #00e0ff, #c77dff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    section p,
+    section li {
+      color: #d8d8d8;
+      font-size: 1rem;
+    }
+
+    ul,
+    ol {
+      margin-left: 20px;
+    }
+
+    li {
+      margin: 6px 0;
+    }
+
+    a {
+      color: #00e0ff;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    h4 {
+      margin-top: 10px;
+      margin-bottom: 5px;
+    }
+
+    /* === TABLE (not used now, but kept if needed) === */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+      font-size: 0.95rem;
+    }
+
+    th,
+    td {
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background: rgba(0, 224, 255, 0.1);
+      color: #00e0ff;
+    }
+
+    tr:nth-child(even) {
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    /* === SKILLS === */
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 10px;
+    }
+
+    .skill {
+      background: linear-gradient(135deg, #00e0ff, #c77dff);
+      color: #000;
+      padding: 8px 14px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      box-shadow: 0 0 10px rgba(199, 125, 255, 0.4);
+      transition: transform 0.2s ease;
+    }
+
+    .skill:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px rgba(0, 224, 255, 0.6);
+    }
+
+    /* === OTHER DETAILS GRID === */
+    .details-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px 25px;
+      margin-top: 15px;
+    }
+
+    .detail-box {
+      background: rgba(255, 255, 255, 0.05);
+      border-left: 3px solid #00e0ff;
+      border-radius: 8px;
+      padding: 10px 15px;
+      transition: all 0.3s ease;
+    }
+
+    .detail-box:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-left-color: #c77dff;
+      transform: translateY(-2px);
+    }
+
+    .detail-label {
+      font-weight: 600;
+      color: #00e0ff;
+    }
+
+    .detail-value {
+      color: #e0e0e0;
+      margin-top: 3px;
+    }
+
+    /* === RESPONSIVE === */
+    @media (max-width: 600px) {
+      header img {
+        width: 120px;
+        height: 120px;
+      }
+
+      nav ul {
+        gap: 6px;
+      }
+
+      nav a {
+        font-size: 0.85rem;
+        padding: 6px 10px;
+      }
+
+      .card {
+        padding: 18px 15px;
+      }
+
+      .details-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Mayank Bansal Portfolio</h1>
+      <hr />
+      <img src="Photo.jpg" alt="Photo of Mayank Bansal" />
+      <hr />
+
+      <nav>
+        <h2><u>Navigate Buttons</u></h2>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#links">Links</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#about">About Me</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#other-details">Other Details</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <!-- HOME -->
+      <section id="home">
+        <div class="card">
+          <h2>Welcome</h2>
+          <p>
+            This is the portfolio of <strong>Mayank Bansal</strong>, a B.Tech student at NIT Jalandhar passionate about coding, design, and web development.
+          </p>
+        </div>
+      </section>
+
+      <!-- LINKS -->
+      <section id="links">
+        <div class="card">
+          <h2><u>Links</u></h2>
+          <ul>
+            <li>
+              <a href="https://github.com/Mayankb2804" target="_blank" rel="noopener">My GitHub</a>
+            </li>
+            <li>
+              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=bmayank6789@gmail.com" target="_blank">bmayank6789@gmail.com</a>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact">
+        <div class="card">
+          <h2><u>Contact</u></h2>
+          <ol>
+            <li>
+              Email:
+              <a href="https://mail.google.com/mail/?view=cm&fs=1&to=bmayank6789@gmail.com" target="_blank">bmayank6789@gmail.com</a>
+            </li>
+            <li>
+              Phone:
+              <a href="tel:+918360891654">+91 83608 91654</a>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about">
+        <div class="card">
+          <h2><u>About Me</u></h2>
+          <ul>
+            <li>I am pursuing B.Tech at NIT Jalandhar and am part of the Website Development Club.</li>
+            <li>My hobbies include playing chess, exploring new technologies, and coding.</li>
+            <li>I have experience with C++, Python, and web development.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SKILLS -->
+      <section id="skills">
+        <div class="card">
+          <h2><u>Skills</u></h2>
+          <div class="skills-list">
+            <span class="skill">HTML5</span>
+            <span class="skill">C++</span>
+            <span class="skill">Python</span>
+            <span class="skill">Git & GitHub</span>
+            <span class="skill">Web Development</span>
+            <span class="skill">Problem Solving</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- EDUCATION -->
+      <section id="education">
+        <div class="card">
+          <h2><u>Education</u></h2>
+
+          <h4>B.Tech (Computer Science & Engineering)</h4>
+          <ul>
+            <li>Dr. B. R. Ambedkar National Institute of Technology (NIT), Jalandhar</li>
+            <li>Year: 1<sup>st</sup> Year (2025 – 2029 Batch)</li>
+            <li>Currently pursuing core subjects in Programming, Data Structures, and Web Development.</li>
+          </ul>
+
+          <h4>12<sup>th</sup> Grade</h4>
+          <ul>
+            <li>Sidhu Memorial Public School, CBSE Board</li>
+            <li>Completed in 2025</li>
+            <li>Percentage: 80%</li>
+          </ul>
+
+          <h4>10<sup>th</sup> Grade</h4>
+          <ul>
+            <li>SBD Public School, CBSE Board</li>
+            <li>Completed in 2023</li>
+            <li>Percentage: 89%</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section id="projects">
+        <div class="card">
+          <h2><u>Projects</u></h2>
+          <ul>
+            <li>
+              <h4>Attendance System using Face Recognition</h4>
+              <p>
+                Built an application that marks student attendance automatically using face recognition through a webcam.
+              </p>
+            </li>
+            <li>
+              <h4>Personal Portfolio Website</h4>
+              <p>
+                Designed and developed this responsive portfolio website using HTML and CSS to showcase my projects, skills, and contact details.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- OTHER DETAILS -->
+      <section id="other-details">
+        <div class="card">
+          <h2><u>Other Details</u></h2>
+          <div class="details-grid">
+            <div class="detail-box">
+              <div class="detail-label">Father's Name:</div>
+              <div class="detail-value">Murari Lal Bansal</div>
+            </div>
+
+            <div class="detail-box">
+              <div class="detail-label">Mother's Name:</div>
+              <div class="detail-value">Leena Rani Bansal</div>
+            </div>
+
+            <div class="detail-box">
+              <div class="detail-label">Father's Occupation:</div>
+              <div class="detail-value">Shopkeeper</div>
+            </div>
+
+            <div class="detail-box">
+              <div class="detail-label">Address:</div>
+              <div class="detail-value">Longowal, Punjab</div>
+            </div>
+
+            <div class="detail-box">
+              <div class="detail-label">Emergency Contact:</div>
+              <div class="detail-value">7589451311</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
